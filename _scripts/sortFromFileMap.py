@@ -13,7 +13,7 @@ def rearrange_from_map(modified_dir, map_file="file_map.json", output_root="rear
         for filename in filenames:
             modified_lookup[filename] = os.path.join(dirpath, filename)
 
-    print(f"🔍 Found {len(modified_lookup)} modified files.")
+    print(f"Found {len(modified_lookup)} modified files.")
     for filename, rel_path in file_map.items():
         dest_path = os.path.join(output_root, rel_path)
         dest_dir = os.path.dirname(dest_path)
@@ -34,7 +34,7 @@ def rearrange_from_map(modified_dir, map_file="file_map.json", output_root="rear
     if missing:
         with open(missing_log, "w", encoding="utf-8") as f:
             f.write("\n".join(missing))
-        print(f"⚠️ Missing {len(missing)} files. See '{missing_log}'.")
+        print(f"Missing {len(missing)} files. See '{missing_log}'.")
     else:
         print("All files successfully matched.")
 
@@ -44,4 +44,5 @@ def rearrange_from_map(modified_dir, map_file="file_map.json", output_root="rear
 if __name__ == "__main__":
     modified = input("Enter the MODIFIED directory path: ").strip('"')
     rearrange_from_map(modified)
+
 
